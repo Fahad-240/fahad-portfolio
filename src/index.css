@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+  --color-muted: #6B7280;
+  --color-border: #ECECEC;
+  --color-accent: #000000;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease both;
+}
+
+.scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered load animation delays for child items */
+.reveal-stagger>* {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-stagger.visible>* {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.visible>*:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.reveal-stagger.visible>*:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.reveal-stagger.visible>*:nth-child(3) {
+  transition-delay: 0.19s;
+}
+
+.reveal-stagger.visible>*:nth-child(4) {
+  transition-delay: 0.26s;
+}
+
+.reveal-stagger.visible>*:nth-child(5) {
+  transition-delay: 0.33s;
+}
+
+.reveal-stagger.visible>*:nth-child(6) {
+  transition-delay: 0.40s;
+}
+
+/* Image zoom hover effect */
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.img-zoom-container img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.04);
+}
+
+/* Card hover animation */
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  border-color: #111111 !important;
+}
+
+/* Custom interactive chip/badge hovers */
+.chip-hover {
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.chip-hover:hover {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #111111 !important;
+}
+
+/* Button arrow translate animation */
+.btn-animate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-animate svg {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-animate:hover svg {
+  transform: translateX(4px);
+}
+
+/* Nav Link soft slide indicator */
+.nav-link-hover {
+  transition: background-color 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+}
+
+.nav-link-hover:hover {
+  padding-left: 18px !important;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #111111 !important;
+  box-shadow: 0 0 0 1px #111111;
+}
+
+/* Infinite Marquee styles */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: scroll-marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Minimalist Projects Hover Styles */
+.project-card {
+  border: 1px solid #ECECEC;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #111111;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-card .project-image {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+/* Top Slide Color Palette Overlay */
+.project-top-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  z-index: 20;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover .project-top-slide {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Comprehensive Responsive Styling */
+@media (max-width: 900px) {
+
+  /* Sidebar transformed into bottom bar */
+  .app-sidebar {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 0 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    border-top: 1px solid #ECECEC !important;
+    border-right: none !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04) !important;
+    z-index: 1000 !important;
+  }
+
+  /* Hide logo and footer copyright on mobile sidebar */
+  .app-sidebar>div {
+    display: none !important;
+  }
+
+  .app-sidebar nav {
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    gap: 0 !important;
+  }
+
+  .app-sidebar nav button {
+    padding: 8px !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    flex-direction: column !important;
+    font-size: 10px !important;
+    align-items: center !important;
+    width: auto !important;
+  }
+
+  .app-sidebar nav button svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Active line indicator on bottom instead of left */
+  .app-sidebar nav button>div {
+    left: 50% !important;
+    top: auto !important;
+    bottom: -8px !important;
+    transform: translateX(-50%) !important;
+    width: 20px !important;
+    height: 3px !important;
+    border-radius: 2px 2px 0 0 !important;
+  }
+
+  /* Main content matches full viewport width */
+  .app-main {
+    margin-left: 0 !important;
+    padding-bottom: 64px !important;
+    /* offset mobile bottom navigation bar */
+  }
+
+  /* Section Padding reduction */
+  section {
+    padding: 80px 24px !important;
+  }
+
+  /* Hero Section adaptations */
+  #home {
+    padding-top: 100px !important;
+  }
+
+  #home h1 {
+    font-size: 42px !important;
+  }
+
+  #home p {
+    font-size: 18px !important;
+    margin-bottom: 20px !important;
+  }
+
+  #home div p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* About Grid columns stack */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    margin-bottom: 40px !important;
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .projects-grid .project-card div {
+    height: 280px !important;
+    /* smaller height on mobile */
+  }
+
+  .projects-grid .project-overlay {
+    padding: 20px !important;
+  }
+
+  .projects-grid .project-overlay h3 {
+    font-size: 18px !important;
+  }
+
+  .projects-grid .project-overlay p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Testimonials slider padding adjustments */
+  #testimonials>div {
+    margin-right: -24px !important;
+    padding: 10px 24px !important;
+  }
+
+  #testimonials .card-hover {
+    flex-basis: 320px !important;
+    /* Narrower slider cards on mobile */
+    padding: 24px !important;
+    min-height: 220px !important;
+  }
+
+  /* Project detail modal */
+  .project-modal {
+    max-height: 90vh !important;
+  }
+
+  .project-modal>div {
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Hide labels on mobile navigation to save space */
+  .app-sidebar nav button {
+    font-size: 0px !important;
+    /* Keep only icon active */
+    gap: 0 !important;
+  }
+
+  section {
+    padding: 60px 16px !important;
+  }
+
+  #testimonials>div {
+    margin-right: -16px !important;
+    padding: 10px 16px !important;
+  }
+
+  #testimonials .card-hover {
+    flex-basis: 280px !important;
+    /* Fit small screens */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hide top right CTA on extremely small viewports */
+  .app-main>div:first-child {
+    display: none !important;
+  }
+}

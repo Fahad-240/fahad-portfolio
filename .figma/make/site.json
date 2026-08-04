@@ -1,0 +1,10 @@
+{
+  "description": "Buid streamlines project management for teams by providing intuitive tools for collaboration, task tracking, and progress visualization, enhancing productivity.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
