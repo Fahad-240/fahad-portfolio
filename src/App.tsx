@@ -18,18 +18,19 @@ function Footer() {
 
   return (
     <footer
+      className="app-footer"
       style={{
         padding: '48px 80px',
         borderTop: '1px solid #ECECEC',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between', // Position copyright left, socials right
+        justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '24px',
       }}
     >
       <div style={{ fontSize: '14px', color: '#9CA3AF' }}>
-        © 2024 Muhammad Ahsan Khan. All rights reserved.
+        © 2026 Fahad Ahmed. All rights reserved.
       </div>
 
       {/* Social links row */}
@@ -102,6 +103,7 @@ export default function App() {
       <main className="app-main" style={{ marginLeft: '190px', flex: 1, minWidth: 0 }}>
         {/* Top right CTA */}
         <div
+          className="top-cta-btn"
           style={{
             position: 'fixed',
             top: '24px',

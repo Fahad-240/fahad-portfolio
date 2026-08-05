@@ -271,10 +271,38 @@ select:focus {
   opacity: 1;
 }
 
-/* Comprehensive Responsive Styling */
-@media (max-width: 900px) {
+/* Comprehensive Responsive Styling for Mobile, Tablet, and Desktop */
 
-  /* Sidebar transformed into bottom bar */
+/* Base container defaults */
+.hero-content-box {
+  padding-left: 80px;
+  padding-right: 40px;
+}
+
+/* Large Screens & Laptops (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .hero-content-box {
+    padding-left: 60px;
+    padding-right: 32px;
+  }
+
+  section {
+    padding: 100px 60px !important;
+  }
+
+  .testimonials-marquee-wrapper {
+    margin: 0 -60px !important;
+    padding: 10px 60px !important;
+  }
+
+  .app-footer {
+    padding: 40px 60px !important;
+  }
+}
+
+/* Tablets & Medium Viewports (max-width: 900px) */
+@media (max-width: 900px) {
+  /* Sidebar transformed into sleek bottom bar */
   .app-sidebar {
     position: fixed !important;
     top: auto !important;
@@ -286,17 +314,19 @@ select:focus {
     flex-direction: row !important;
     justify-content: space-around !important;
     align-items: center !important;
-    padding: 0 12px !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(12px) !important;
+    padding: 0 16px !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     border-top: 1px solid #ECECEC !important;
     border-right: none !important;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.06) !important;
     z-index: 1000 !important;
   }
 
-  /* Hide logo and footer copyright on mobile sidebar */
-  .app-sidebar>div {
+  /* Hide sidebar logo and footer copyright on mobile bottom bar */
+  .app-sidebar > div {
     display: none !important;
   }
 
@@ -308,145 +338,182 @@ select:focus {
   }
 
   .app-sidebar nav button {
-    padding: 8px !important;
+    padding: 8px 12px !important;
     justify-content: center !important;
     gap: 4px !important;
     flex-direction: column !important;
-    font-size: 10px !important;
+    font-size: 11px !important;
     align-items: center !important;
     width: auto !important;
   }
 
   .app-sidebar nav button svg {
-    width: 18px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
-  /* Active line indicator on bottom instead of left */
-  .app-sidebar nav button>div {
+  /* Active line indicator on bottom */
+  .app-sidebar nav button > div {
     left: 50% !important;
     top: auto !important;
-    bottom: -8px !important;
+    bottom: -4px !important;
     transform: translateX(-50%) !important;
     width: 20px !important;
     height: 3px !important;
     border-radius: 2px 2px 0 0 !important;
   }
 
-  /* Main content matches full viewport width */
+  /* Main content offset for bottom bar */
   .app-main {
     margin-left: 0 !important;
-    padding-bottom: 64px !important;
-    /* offset mobile bottom navigation bar */
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
   /* Section Padding reduction */
   section {
-    padding: 80px 24px !important;
+    padding: 80px 32px !important;
   }
 
   /* Hero Section adaptations */
   #home {
-    padding-top: 100px !important;
+    padding-top: 60px !important;
+    min-height: calc(100vh - 64px) !important;
   }
 
-  #home h1 {
-    font-size: 42px !important;
+  .hero-content-box {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 40px !important;
   }
 
-  #home p {
-    font-size: 18px !important;
-    margin-bottom: 20px !important;
+  .hero-bg-container {
+    width: 100% !important;
+    opacity: 0.25 !important;
   }
 
-  #home div p {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
+  .hero-bg-overlay {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.95) 100%) !important;
   }
 
-  /* About Grid columns stack */
+  /* About Grid stack */
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
     margin-bottom: 40px !important;
   }
 
+  /* Contact Grid stack */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  .contact-form-card {
+    padding: 32px !important;
+  }
+
   /* Projects Grid */
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
   }
 
-  .projects-grid .project-card div {
-    height: 280px !important;
-    /* smaller height on mobile */
+  /* Testimonials slider wrapper */
+  .testimonials-marquee-wrapper {
+    margin: 0 -32px !important;
+    padding: 10px 32px !important;
   }
 
-  .projects-grid .project-overlay {
-    padding: 20px !important;
-  }
-
-  .projects-grid .project-overlay h3 {
-    font-size: 18px !important;
-  }
-
-  .projects-grid .project-overlay p {
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-  }
-
-  /* Testimonials slider padding adjustments */
-  #testimonials>div {
-    margin-right: -24px !important;
-    padding: 10px 24px !important;
-  }
-
-  #testimonials .card-hover {
-    flex-basis: 320px !important;
-    /* Narrower slider cards on mobile */
-    padding: 24px !important;
-    min-height: 220px !important;
-  }
-
-  /* Project detail modal */
-  .project-modal {
-    max-height: 90vh !important;
-  }
-
-  .project-modal>div {
-    padding: 24px !important;
+  .app-footer {
+    padding: 40px 32px !important;
   }
 }
 
-@media (max-width: 480px) {
-
-  /* Hide labels on mobile navigation to save space */
-  .app-sidebar nav button {
-    font-size: 0px !important;
-    /* Keep only icon active */
-    gap: 0 !important;
-  }
-
+/* Mobile Devices & Phones (max-width: 640px) */
+@media (max-width: 640px) {
   section {
-    padding: 60px 16px !important;
+    padding: 60px 20px !important;
   }
 
-  #testimonials>div {
-    margin-right: -16px !important;
-    padding: 10px 16px !important;
+  /* Hero Adjustments */
+  #home {
+    padding-top: 40px !important;
   }
 
-  #testimonials .card-hover {
-    flex-basis: 280px !important;
-    /* Fit small screens */
+  .hero-content-box {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
+  #home h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+  }
+
+  /* Form input rows stack into 1 column on phones */
+  .contact-inputs-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .contact-form-card {
+    padding: 24px 18px !important;
+  }
+
+  /* Top CTA button on small screens */
+  .top-cta-btn {
+    top: 16px !important;
+    right: 16px !important;
+  }
+
+  .top-cta-btn button {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+
+  /* Projects Grid */
   .projects-grid {
     grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
-  /* Hide top right CTA on extremely small viewports */
-  .app-main>div:first-child {
-    display: none !important;
+  /* Project Modal mobile layout */
+  .project-modal {
+    max-width: 95vw !important;
+    max-height: 88vh !important;
+    padding: 20px !important;
+  }
+
+  /* Testimonials slider padding adjustments */
+  .testimonials-marquee-wrapper {
+    margin: 0 -20px !important;
+    padding: 10px 20px !important;
+  }
+
+  .marquee-track .card-hover {
+    flex-basis: 300px !important;
+    padding: 20px !important;
+    min-height: 280px !important;
+  }
+
+  .app-footer {
+    padding: 32px 20px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+}
+
+/* Extra Small Phones (max-width: 420px) */
+@media (max-width: 420px) {
+  .app-sidebar nav button {
+    font-size: 0px !important; /* Keep icons clean and clear on narrow screens */
+  }
+
+  .marquee-track .card-hover {
+    flex-basis: 260px !important;
+  }
+
+  .top-cta-btn {
+    display: none !important; /* Hide top CTA to avoid cluttering small header space */
   }
 }

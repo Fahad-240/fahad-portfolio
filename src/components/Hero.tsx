@@ -34,6 +34,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
+      className="hero-section"
       style={{
         minHeight: '100vh',
         position: 'relative',
@@ -46,12 +47,13 @@ export default function Hero() {
     >
       {/* Background/Right Image aligned to the right side */}
       <div
+        className="hero-bg-container"
         style={{
           position: 'absolute',
           top: 0,
           right: 0,
           bottom: 0,
-          width: '60%', // Takes up the right 60% of the screen
+          width: '55%',
           zIndex: 0,
         }}
       >
@@ -63,30 +65,30 @@ export default function Hero() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'left center', // Shift image contents slightly
+            objectPosition: 'center center',
             display: 'block',
           }}
         />
         {/* Soft gradient overlay on the image to blend it into the white text area */}
         <div
+          className="hero-bg-overlay"
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.4) 60%, transparent 100%)',
+            background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.92) 25%, rgba(255,255,255,0.4) 65%, transparent 100%)',
             pointerEvents: 'none',
           }}
         />
       </div>
 
-      {/* Text content container with much more width and breathing room */}
+      {/* Text content container with responsive padding and spacing */}
       <div
+        className="hero-content-box"
         style={{
           position: 'relative',
           zIndex: 2,
-          paddingLeft: '80px',
-          paddingRight: '40px',
           width: '100%',
-          maxWidth: '750px', // Increased max-width so text has plenty of space
+          maxWidth: '780px',
         }}
       >
         {/* Hi, I'm */}

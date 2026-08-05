@@ -179,9 +179,9 @@ export default function About() {
             marginBottom: '40px',
           }}>
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&auto=format&face"
-              alt="Muhammad Ahsan Khan — professional portrait"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              src="/model.png"
+              alt="Fahad Ahmed — professional portrait"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
             />
           </div>
         </div>

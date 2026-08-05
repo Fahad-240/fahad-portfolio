@@ -160,7 +160,7 @@ export default function Contact() {
       </div>
 
       <div
-        className="reveal"
+        className="reveal contact-grid"
         style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '80px', alignItems: 'start' }}
       >
         {/* Left — contact info */}
@@ -198,13 +198,13 @@ export default function Contact() {
                 }}
               >
                 <div style={{ color: '#6B7280', flexShrink: 0 }}>{icon}</div>
-                <div>
+                <div style={{ minWidth: 0, overflow: 'hidden' }}>
                   <div style={{ fontSize: '11px', fontWeight: 600, color: '#9CA3AF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
                     {label}
                   </div>
-                  <div style={{ fontSize: '14px', fontWeight: 500, color: '#111111' }}>{value}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 500, color: '#111111', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{value}</div>
                 </div>
-                <svg style={{ marginLeft: 'auto', color: '#D1D5DB' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg style={{ marginLeft: 'auto', color: '#D1D5DB', flexShrink: 0 }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
@@ -212,8 +212,8 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right — Job Seeker / Candidate Contact Form */}
-        <div style={{ border: '1px solid #ECECEC', borderRadius: '12px', padding: '48px', background: '#ffffff' }}>
+        {/* Right — Candidate Contact Form */}
+        <div className="contact-form-card" style={{ border: '1px solid #ECECEC', borderRadius: '12px', padding: '48px', background: '#ffffff' }}>
           {submitted ? (
             <div style={{ textAlign: 'center', padding: '40px 0' }}>
               <div style={{ fontSize: '48px', marginBottom: '24px' }}>✓</div>
@@ -224,7 +224,7 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="contact-inputs-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', letterSpacing: '0.04em', display: 'block', marginBottom: '8px' }}>
                     Full Name *
@@ -266,7 +266,7 @@ export default function Contact() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="contact-inputs-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', letterSpacing: '0.04em', display: 'block', marginBottom: '8px' }}>
                     Opportunity Type
