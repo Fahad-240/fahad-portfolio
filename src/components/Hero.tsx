@@ -5,30 +5,31 @@ import { useGSAP } from '@gsap/react'
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
 
-  useGSAP(() => {
+  useGSAP(
+    () => {
+      // Staggered text elements animation
+      gsap.fromTo(
+        '.hero-reveal',
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: 'power3.out',
+          delay: 0.15,
+        }
+      )
 
-
-    // Staggered text elements animation
-    gsap.fromTo(
-      '.hero-reveal',
-      { opacity: 0, y: 35 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: 'power3.out',
-        delay: 0.15
-      }
-    )
-
-    // Scroll indicator animation
-    gsap.fromTo(
-      '.hero-scroll-indicator',
-      { opacity: 0, y: 15 },
-      { opacity: 1, y: 0, duration: 0.8, delay: 0.9 }
-    )
-  }, { scope: heroRef })
+      // Scroll indicator animation
+      gsap.fromTo(
+        '.hero-scroll-indicator',
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.9 }
+      )
+    },
+    { scope: heroRef }
+  )
 
   return (
     <section
@@ -40,9 +41,10 @@ export default function Hero() {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
-        borderBottom: '1px solid #ECECEC',
-        backgroundColor: '#ffffff',
+        borderBottom: '1px solid var(--border-color)',
+        backgroundColor: 'var(--bg-primary)',
         overflow: 'hidden',
+        transition: 'var(--theme-transition)',
       }}
     >
       {/* Background/Right Image aligned to the right side */}
@@ -55,6 +57,7 @@ export default function Hero() {
           bottom: 0,
           width: '55%',
           zIndex: 0,
+          opacity: 0.85,
         }}
       >
         <img
@@ -69,19 +72,20 @@ export default function Hero() {
             display: 'block',
           }}
         />
-        {/* Soft gradient overlay on the image to blend it into the white text area */}
+        {/* Soft gradient overlay on the image to blend into background */}
         <div
           className="hero-bg-overlay"
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.92) 25%, rgba(255,255,255,0.4) 65%, transparent 100%)',
+            background: 'linear-gradient(to right, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%)',
             pointerEvents: 'none',
+            transition: 'var(--theme-transition)',
           }}
         />
       </div>
 
-      {/* Text content container with responsive padding and spacing */}
+      {/* Text content container */}
       <div
         className="hero-content-box"
         style={{
@@ -98,7 +102,7 @@ export default function Hero() {
             fontSize: '14px',
             fontWeight: 500,
             letterSpacing: '0.05em',
-            color: '#6B7280',
+            color: 'var(--text-muted)',
             marginBottom: '20px',
             textTransform: 'uppercase',
             opacity: 0,
@@ -115,7 +119,7 @@ export default function Hero() {
             fontWeight: 800,
             lineHeight: 1.05,
             letterSpacing: '-0.035em',
-            color: '#111111',
+            color: 'var(--text-primary)',
             marginBottom: '20px',
             opacity: 0,
           }}
@@ -129,7 +133,7 @@ export default function Hero() {
           style={{
             fontSize: '20px',
             fontWeight: 500,
-            color: '#374151',
+            color: 'var(--text-secondary)',
             marginBottom: '28px',
             letterSpacing: '-0.01em',
             opacity: 0,
@@ -144,9 +148,9 @@ export default function Hero() {
           style={{
             fontSize: '16px',
             lineHeight: 1.8,
-            color: '#4B5563',
+            color: 'var(--text-secondary)',
             marginBottom: '44px',
-            maxWidth: '780px', // Wider description width so it doesn't wrap too tightly
+            maxWidth: '780px',
             opacity: 0,
           }}
         >
@@ -163,8 +167,8 @@ export default function Hero() {
               alignItems: 'center',
               gap: '10px',
               padding: '14px 30px',
-              background: '#111111',
-              color: '#ffffff',
+              background: 'var(--accent-color)',
+              color: 'var(--accent-contrast)',
               border: 'none',
               borderRadius: '6px',
               fontSize: '15px',
@@ -172,6 +176,8 @@ export default function Hero() {
               letterSpacing: '0.01em',
               cursor: 'pointer',
               fontFamily: 'Inter, sans-serif',
+              boxShadow: 'var(--shadow-sm)',
+              transition: 'var(--theme-transition)',
             }}
           >
             View Projects
@@ -183,41 +189,29 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll down indicator */}
       <div
-        className="hero-scroll-indicator"
+        className="hero-scroll-indicator scroll-bounce"
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
         style={{
           position: 'absolute',
-          bottom: '32px',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          bottom: '36px',
+          left: '80px',
+          zIndex: 2,
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           gap: '8px',
-          color: '#9CA3AF',
-          zIndex: 3,
-          opacity: 0,
+          cursor: 'pointer',
+          color: 'var(--text-muted)',
+          fontSize: '12px',
+          letterSpacing: '0.04em',
         }}
       >
-        <div
-          className="scroll-bounce"
-          style={{
-            width: '22px',
-            height: '34px',
-            border: '1.5px solid #D1D5DB',
-            borderRadius: '11px',
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            paddingTop: '5px',
-          }}
-        >
-          <div style={{ width: '3px', height: '7px', background: '#D1D5DB', borderRadius: '2px' }} />
-        </div>
-        <span style={{ fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500 }}>
-          Scroll Down
-        </span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19,12 12,19 5,12" />
+        </svg>
+        <span>SCROLL DOWN</span>
       </div>
     </section>
   )

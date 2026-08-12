@@ -46,7 +46,7 @@ const projects = [
     year: '2024',
     image: financeImg,
     metrics: '$5M+ Tracked Assets',
-    liveUrl: 'https://ai-finance-manager-two.vercel.app/',
+    liveUrl: 'https://ai-finance-manager-e1n4.vercel.app/',
     githubUrl: 'https://github.com/Fahad-240/ai-finance-manager',
   },
   {
@@ -127,14 +127,14 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      style={{ padding: '120px 80px', borderBottom: '1px solid #ECECEC' }}
+      style={{ padding: '120px 80px', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-primary)', transition: 'var(--theme-transition)' }}
     >
       <div className="reveal" style={{ marginBottom: '60px' }}>
-        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: '#6B7280', textTransform: 'uppercase', marginBottom: '16px' }}>
+        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '16px' }}>
           Projects
         </p>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
-          <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#111111', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
             Selected work.
           </h2>
           {/* Category filters */}
@@ -362,44 +362,48 @@ export default function Projects() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0,0,0,0.4)',
+            background: 'rgba(0,0,0,0.65)',
             zIndex: 200,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '24px',
+            backdropFilter: 'blur(8px)',
           }}
           onClick={() => setSelected(null)}
         >
           <div
             className="project-modal"
             style={{
-              background: '#ffffff',
+              background: 'var(--bg-modal)',
+              border: '1px solid var(--border-color)',
+              color: 'var(--text-primary)',
               borderRadius: '16px',
               maxWidth: '720px',
               width: '100%',
               maxHeight: '85vh',
               overflowY: 'auto',
-              boxShadow: '0 32px 80px rgba(0,0,0,0.2)',
+              boxShadow: 'var(--shadow-lg)',
+              transition: 'var(--theme-transition)',
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ height: '280px', overflow: 'hidden', borderRadius: '16px 16px 0 0', backgroundColor: '#f5f5f5' }}>
+            <div style={{ height: '280px', overflow: 'hidden', borderRadius: '16px 16px 0 0', backgroundColor: 'var(--bg-card-subtle)' }}>
               <img src={selected.image} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{ padding: '40px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                 <div>
-                  <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', color: '#9CA3AF', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                     {selected.category} · {selected.year}
                   </span>
-                  <h3 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', color: '#111111', marginTop: '8px' }}>
+                  <h3 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)', marginTop: '8px' }}>
                     {selected.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelected(null)}
-                  style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #ECECEC', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', color: '#6B7280', flexShrink: 0 }}
+                  style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid var(--border-color)', background: 'var(--bg-card-subtle)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', color: 'var(--text-secondary)', flexShrink: 0 }}
                 >
                   ×
                 </button>
@@ -412,20 +416,20 @@ export default function Projects() {
                 { title: 'Results', content: `Delivered measurable impact: ${selected.metrics || 'High engagement & performance'}. Reduced operational overhead by 40% and improved data accuracy to 99.9%.` },
               ].map(({ title, content }) => (
                 <div key={title} style={{ marginBottom: '28px' }}>
-                  <h4 style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '10px' }}>
+                  <h4 style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '10px' }}>
                     {title}
                   </h4>
-                  <p style={{ fontSize: '15px', lineHeight: 1.7, color: '#374151' }}>{content}</p>
+                  <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{content}</p>
                 </div>
               ))}
 
               <div style={{ marginBottom: '32px' }}>
-                <h4 style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
+                <h4 style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '12px' }}>
                   Technology
                 </h4>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   {selected.tech.map((t) => (
-                    <span key={t} style={{ fontSize: '13px', fontWeight: 500, color: '#111111', padding: '6px 14px', border: '1px solid #ECECEC', borderRadius: '6px' }}>
+                    <span key={t} style={{ fontSize: '13px', fontWeight: 500, color: 'var(--text-primary)', padding: '6px 14px', border: '1px solid var(--border-color)', borderRadius: '6px', background: 'var(--bg-card-subtle)' }}>
                       {t}
                     </span>
                   ))}

@@ -99,8 +99,9 @@ export default function Sidebar({ activeSection }: SidebarProps) {
         top: 0,
         bottom: 0,
         width: '190px', // Increased width for better layout spacing
-        backgroundColor: 'transparent',
+        backgroundColor: 'var(--bg-sidebar)',
         borderRight: 'none',
+        transition: 'var(--theme-transition)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -149,7 +150,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
                 borderRadius: '8px',
                 border: 'none',
                 background: 'transparent',
-                color: isActive ? '#111111' : isHovered ? '#374151' : '#9CA3AF',
+                color: isActive ? 'var(--accent-color)' : isHovered ? 'var(--text-primary)' : 'var(--text-muted)',
                 cursor: 'pointer',
                 width: '100%',
                 textAlign: 'left',
@@ -158,7 +159,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
                 fontWeight: isActive ? 600 : 500,
                 letterSpacing: '0.01em',
                 position: 'relative',
-                transition: 'color 0.2s ease',
+                transition: 'color 0.2s ease, var(--theme-transition)',
               }}
             >
               {/* Active left bar */}
@@ -170,7 +171,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
                   transform: 'translateY(-50%)',
                   width: '3.5px',
                   height: '24px',
-                  background: '#111111',
+                  background: 'var(--accent-color)',
                   borderRadius: '0 2px 2px 0',
                 }} />
               )}
@@ -185,7 +186,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
         <div style={{
           fontSize: '11px',
-          color: '#D1D5DB',
+          color: 'var(--text-muted)',
           letterSpacing: '0.04em',
           paddingLeft: '10px',
         }}>

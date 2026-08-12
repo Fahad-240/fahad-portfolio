@@ -153,14 +153,14 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      style={{ padding: '120px 80px', borderBottom: '1px solid #ECECEC' }}
+      style={{ padding: '120px 80px', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-primary)', transition: 'var(--theme-transition)' }}
     >
       {/* Section header */}
       <div className="reveal" style={{ marginBottom: '80px' }}>
-        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: '#6B7280', textTransform: 'uppercase', marginBottom: '16px' }}>
+        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '16px' }}>
           About
         </p>
-        <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#111111', lineHeight: 1.1 }}>
+        <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
           Crafting software that
           <br />
           moves business forward.
@@ -187,16 +187,16 @@ export default function About() {
         </div>
 
         <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '32px', paddingTop: '8px' }}>
-          <p style={{ fontSize: '18px', lineHeight: 1.8, color: '#374151' }}>
+          <p style={{ fontSize: '18px', lineHeight: 1.8, color: 'var(--text-primary)' }}>
             I specialize in creating high-performance applications using modern technologies, with a strong focus on clean architecture, maintainable code, and exceptional user experience. From responsive frontend interfaces to secure backend APIs and database design, I enjoy building complete solutions that are reliable, scalable, and built for long-term growth.
           </p>
-          <p style={{ fontSize: '16px', lineHeight: 1.8, color: '#6B7280' }}>
+          <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--text-secondary)' }}>
             I believe great software is more than writing code—it's about understanding problems, designing thoughtful solutions, and delivering products that make a meaningful impact. Every project I work on is guided by performance, security, scalability, and attention to detail.
           </p>
 
           {/* Philosophy */}
-          <div style={{ borderLeft: '2px solid #111111', paddingLeft: '24px' }}>
-            <p style={{ fontSize: '15px', lineHeight: 1.7, color: '#374151', fontStyle: 'italic' }}>
+          <div style={{ borderLeft: '2px solid var(--accent-color)', paddingLeft: '24px' }}>
+            <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'var(--text-secondary)', fontStyle: 'italic' }}>
               "I believe great software is built with purpose—where every line of code, every feature, and every decision contributes to a product that is reliable, scalable, and built to last."
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function About() {
 
       {/* Tech Stack */}
       <div className="reveal" style={{ marginBottom: '80px' }}>
-        <h3 style={{ fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em', color: '#111111', marginBottom: '40px' }}>
+        <h3 style={{ fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)', marginBottom: '40px' }}>
           Technology
         </h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px 24px' }}>
@@ -362,7 +362,7 @@ export default function About() {
 
       {/* Experience Timeline */}
       <div className="reveal">
-        <h3 style={{ fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em', color: '#111111', marginBottom: '40px' }}>
+        <h3 style={{ fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--text-primary)', marginBottom: '40px' }}>
           Experience
         </h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
@@ -376,19 +376,19 @@ export default function About() {
                 paddingBottom: '40px',
               }}
             >
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#6B7280', paddingTop: '4px' }}>
+              <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)', paddingTop: '4px' }}>
                 {item.year}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#111111', margin: '4px -3.5px 0' }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-color)', margin: '4px -3.5px 0' }} />
                 {i < timeline.length - 1 && (
-                  <div style={{ flex: 1, width: '1px', background: '#ECECEC', marginTop: '8px' }} />
+                  <div style={{ flex: 1, width: '1px', background: 'var(--border-color)', marginTop: '8px' }} />
                 )}
               </div>
               <div style={{ paddingBottom: '8px' }}>
-                <div style={{ fontSize: '17px', fontWeight: 600, color: '#111111', marginBottom: '4px' }}>{item.title}</div>
-                <div style={{ fontSize: '14px', color: '#6B7280', marginBottom: '10px', fontWeight: 500 }}>{item.company}</div>
-                <div style={{ fontSize: '15px', color: '#374151', lineHeight: 1.6 }}>{item.desc}</div>
+                <div style={{ fontSize: '17px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '4px' }}>{item.title}</div>
+                <div style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '10px', fontWeight: 500 }}>{item.company}</div>
+                <div style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{item.desc}</div>
               </div>
             </div>
           ))}

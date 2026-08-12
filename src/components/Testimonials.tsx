@@ -164,14 +164,14 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={sectionRef}
-      style={{ padding: '120px 80px', borderBottom: '1px solid #ECECEC', overflow: 'hidden' }}
+      style={{ padding: '120px 80px', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-primary)', transition: 'var(--theme-transition)', overflow: 'hidden' }}
     >
       {/* Header */}
       <div className="testimonials-header" style={{ marginBottom: '64px' }}>
-        <p className="testimonials-header-tag" style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: '#6B7280', textTransform: 'uppercase', marginBottom: '16px' }}>
+        <p className="testimonials-header-tag" style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '16px' }}>
           Testimonials
         </p>
-        <h2 className="testimonials-header-title" style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#111111', lineHeight: 1.1 }}>
+        <h2 className="testimonials-header-title" style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
           Trusted by clients
           <br />worldwide.
         </h2>
@@ -187,14 +187,16 @@ export default function Testimonials() {
               style={{
                 flex: '0 0 460px',
                 padding: '28px',
-                border: '1px solid #ECECEC',
+                border: '1px solid var(--border-color)',
                 borderRadius: '16px',
-                background: '#ffffff',
+                background: 'var(--bg-card)',
+                color: 'var(--text-primary)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 minHeight: '320px',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.01)',
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'var(--theme-transition)',
               }}
             >
               <div>
@@ -221,7 +223,7 @@ export default function Testimonials() {
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ fontSize: '14px', fontWeight: 600, color: '#111111' }}>{name}</span>
+                      <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>{name}</span>
                       {getFlagUrl(flag) ? (
                         <img
                           src={`https://flagcdn.com/16x12/${getFlagUrl(flag)}.png`}
@@ -238,36 +240,36 @@ export default function Testimonials() {
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
                       <RatingStars rating={rating} />
-                      <span style={{ fontSize: '11px', fontWeight: 600, color: '#6B7280', marginLeft: '2px' }}>{rating.toFixed(1)}</span>
+                      <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginLeft: '2px' }}>{rating.toFixed(1)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Project Title */}
-                <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#111111', marginBottom: '8px', lineHeight: 1.4, letterSpacing: '-0.01em' }}>
+                <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.4, letterSpacing: '-0.01em' }}>
                   {title}
                 </h4>
 
                 {/* Quote / Feedback */}
-                <p style={{ fontSize: '13.5px', lineHeight: 1.6, color: '#4B5563', marginBottom: '20px' }}>
+                <p style={{ fontSize: '13.5px', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '20px' }}>
                   "{quote}"
                 </p>
               </div>
 
               {/* Tags / Skills at the bottom */}
               {tags && tags.length > 0 && (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: 'auto', paddingTop: '12px', borderTop: '1px dashed #F3F4F6' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: 'auto', paddingTop: '12px', borderTop: '1px dashed var(--border-color)' }}>
                   {tags.map((tag) => (
                     <span
                       key={tag}
                       style={{
                         fontSize: '11px',
                         fontWeight: 500,
-                        color: '#4B5563',
-                        background: '#F9FAFB',
+                        color: 'var(--text-secondary)',
+                        background: 'var(--bg-card-subtle)',
                         padding: '3px 10px',
                         borderRadius: '100px',
-                        border: '1px solid #ECECEC',
+                        border: '1px solid var(--border-color)',
                       }}
                     >
                       {tag}

@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@types/three": "^0.185.4",
     "gsap": "^3.15.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

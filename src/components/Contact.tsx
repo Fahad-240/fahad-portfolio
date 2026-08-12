@@ -134,26 +134,26 @@ export default function Contact() {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '14px 16px',
-    border: '1px solid #ECECEC',
+    border: '1px solid var(--border-color)',
     borderRadius: '8px',
     fontSize: '15px',
-    color: '#111111',
-    background: '#ffffff',
+    color: 'var(--text-primary)',
+    background: 'var(--bg-card)',
     fontFamily: 'Inter, sans-serif',
-    transition: 'border-color 0.2s ease',
+    transition: 'border-color 0.2s ease, var(--theme-transition)',
   }
 
   return (
     <section
       id="contact"
       ref={sectionRef}
-      style={{ padding: '120px 80px', borderBottom: '1px solid #ECECEC' }}
+      style={{ padding: '120px 80px', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-primary)', transition: 'var(--theme-transition)' }}
     >
       <div className="reveal" style={{ marginBottom: '64px' }}>
-        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: '#6B7280', textTransform: 'uppercase', marginBottom: '16px' }}>
+        <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '16px' }}>
           Get In Touch
         </p>
-        <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#111111', lineHeight: 1.1 }}>
+        <h2 style={{ fontSize: 'clamp(36px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.025em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
           Let's discuss your next
           <br />great hire or project.
         </h2>
@@ -165,7 +165,7 @@ export default function Contact() {
       >
         {/* Left — contact info */}
         <div>
-          <p style={{ fontSize: '17px', lineHeight: 1.7, color: '#6B7280', marginBottom: '36px' }}>
+          <p style={{ fontSize: '17px', lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '36px' }}>
             I am currently open to full-time MERN & Full Stack Developer roles, contract projects,
             and software engineering opportunities. Reach out via the form or through my direct channels below!
           </p>
@@ -182,29 +182,30 @@ export default function Contact() {
                   alignItems: 'center',
                   gap: '16px',
                   textDecoration: 'none',
-                  color: '#111111',
+                  color: 'var(--text-primary)',
                   padding: '16px',
-                  border: '1px solid #ECECEC',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '10px',
-                  transition: 'border-color 0.2s ease, background 0.2s ease',
+                  background: 'var(--bg-card)',
+                  transition: 'border-color 0.2s ease, background 0.2s ease, var(--theme-transition)',
                 }}
                 onMouseOver={e => {
-                  e.currentTarget.style.borderColor = '#111111'
-                  e.currentTarget.style.background = '#fafafa'
+                  e.currentTarget.style.borderColor = 'var(--accent-color)'
+                  e.currentTarget.style.background = 'var(--accent-soft)'
                 }}
                 onMouseOut={e => {
-                  e.currentTarget.style.borderColor = '#ECECEC'
-                  e.currentTarget.style.background = '#ffffff'
+                  e.currentTarget.style.borderColor = 'var(--border-color)'
+                  e.currentTarget.style.background = 'var(--bg-card)'
                 }}
               >
-                <div style={{ color: '#6B7280', flexShrink: 0 }}>{icon}</div>
+                <div style={{ color: 'var(--text-secondary)', flexShrink: 0 }}>{icon}</div>
                 <div style={{ minWidth: 0, overflow: 'hidden' }}>
-                  <div style={{ fontSize: '11px', fontWeight: 600, color: '#9CA3AF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
                     {label}
                   </div>
-                  <div style={{ fontSize: '14px', fontWeight: 500, color: '#111111', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{value}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{value}</div>
                 </div>
-                <svg style={{ marginLeft: 'auto', color: '#D1D5DB', flexShrink: 0 }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg style={{ marginLeft: 'auto', color: 'var(--text-muted)', flexShrink: 0 }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
@@ -213,7 +214,7 @@ export default function Contact() {
         </div>
 
         {/* Right — Candidate Contact Form */}
-        <div className="contact-form-card" style={{ border: '1px solid #ECECEC', borderRadius: '12px', padding: '48px', background: '#ffffff' }}>
+        <div className="contact-form-card" style={{ border: '1px solid var(--border-color)', borderRadius: '12px', padding: '48px', background: 'var(--bg-card)', color: 'var(--text-primary)', transition: 'var(--theme-transition)' }}>
           {submitted ? (
             <div style={{ textAlign: 'center', padding: '40px 0' }}>
               <div style={{ fontSize: '48px', marginBottom: '24px' }}>✓</div>
@@ -316,8 +317,8 @@ export default function Contact() {
                 style={{
                   width: '100%',
                   padding: '16px',
-                  background: loading ? '#6B7280' : '#111111',
-                  color: '#ffffff',
+                  background: loading ? 'var(--text-muted)' : 'var(--accent-color)',
+                  color: 'var(--accent-contrast)',
                   border: 'none',
                   borderRadius: '8px',
                   fontSize: '15px',
@@ -326,7 +327,8 @@ export default function Contact() {
                   letterSpacing: '0.02em',
                   marginTop: '4px',
                   opacity: loading ? 0.7 : 1,
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.2s ease, var(--theme-transition)',
+                  boxShadow: 'var(--shadow-sm)',
                 }}
               >
                 {loading ? 'Sending Inquiry...' : 'Send Inquiry'}
